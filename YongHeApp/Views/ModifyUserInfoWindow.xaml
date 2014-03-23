@@ -1,0 +1,44 @@
+﻿<controls:MetroWindow x:Class="YongHeApp.Views.ModifyUserInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" 
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="修改用户密码" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <controls:MetroWindow.Background>
+        <ImageBrush ImageSource="/YongHeApp;component/Resources/background.jpg" />
+    </controls:MetroWindow.Background>
+    <controls:MetroWindow.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="华文行楷" />
+            <Setter Property="FontSize" Value="16" />
+            <!--<Setter Property="FontWeight" Value="Bold" />-->
+        </Style>
+    </controls:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="80,0">
+            <TextBlock Text="旧密码：" Width="100" VerticalAlignment="Center"></TextBlock>
+            <PasswordBox x:Name="OldPasswordBox"  Width="120"  controls:TextboxHelper.ClearTextButton="True"></PasswordBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal"  VerticalAlignment="Center" Margin="80,0">
+            <TextBlock Text="新密码：" Width="100" VerticalAlignment="Center"></TextBlock>
+            <PasswordBox x:Name="NewPasswordBox" Password="" Width="120"  controls:TextboxHelper.ClearTextButton="True"></PasswordBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal"  VerticalAlignment="Center" Margin="80,0">
+            <TextBlock Text="确认新密码：" Width="100" VerticalAlignment="Center"></TextBlock>
+            <PasswordBox x:Name="ConfirmPasswordBox" Password="" Width="120"  controls:TextboxHelper.ClearTextButton="True"></PasswordBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20">
+            <Button x:Name="SubmitButton" Content="提交" Width="80" Margin="20,0" Click="SubmitButton_Click"></Button>
+            <Button x:Name="CancelButton" Content="取消" Width="80" Margin="20,0"  Click="CancelButton_Click"></Button>
+        </StackPanel>
+    </Grid>
+</controls:MetroWindow>

@@ -1,0 +1,38 @@
+﻿<Controls:MetroWindow x:Class="YongHeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Views="clr-namespace:YongHeApp.Views"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="永和日记" Height="600" MinWidth="800" Width="800" WindowStartupLocation="CenterScreen" FontSize="46">
+    <Controls:MetroWindow.Background>
+        <ImageBrush ImageSource="/YongHeApp;component/Resources/background.jpg" />
+    </Controls:MetroWindow.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Menu Margin="0,5" Background="Transparent">
+            <MenuItem Header="永和日记" Command="{Binding ChangeViewCommand}" CommandParameter="0"></MenuItem>
+            <MenuItem Header="收支查询" Command="{Binding ChangeViewCommand}" CommandParameter="1"></MenuItem>
+            <MenuItem Header="用户管理">
+                <MenuItem x:Name="AddEventMenuItem" Header="修改事项" Click="AddEventMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="ChangePasswordMenuItem" Header="修改密码" Click="ChangePasswordMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="LogoutMenuItem" Header="注销登录" Click="LogoutMenuItem_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <!--TabControl-->
+        <TabControl Grid.Row="1" SelectedIndex="{Binding ViewIndex}">
+            <TabItem > <!--Header="永和日记"-->
+                <Views:DisplayGrid></Views:DisplayGrid>
+            </TabItem>
+            <TabItem >  <!--Header="收支查询"-->
+                <Views:QueryView></Views:QueryView>
+            </TabItem>
+        </TabControl>
+    </Grid>
+    </Controls:MetroWindow>

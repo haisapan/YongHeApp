@@ -1,0 +1,9 @@
+
+//创建Note Table
+create Table 
+YongHeNote(id integer NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+event Text, isIncome integer, money real, location Text, userId integer, noteTime Text, Note Text) 
+ 
+//创建User Table
+Create Table User(id integer NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, userName Text, password Text)
+ 
